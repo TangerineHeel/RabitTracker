@@ -6,5 +6,7 @@ com/hello/RabbitTracker/databinding/ActivityLoginBinding.java
  com.hello.RabbitTracker.databinding.ActivityLoginBinding
 com/hello/RabbitTracker/databinding/TodoListItemBinding.java
  com.hello.RabbitTracker.databinding.TodoListItemBinding
+com/hello/RabbitTracker/databinding/ActivityAddTodoBinding.java
+ com.hello.RabbitTracker.databinding.ActivityAddTodoBinding
 com/hello/RabbitTracker/databinding/ActivityMainBinding.java
  com.hello.RabbitTracker.databinding.ActivityMainBinding

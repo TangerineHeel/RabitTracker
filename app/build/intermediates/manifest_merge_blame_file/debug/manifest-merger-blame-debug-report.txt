@@ -11,7 +11,7 @@
 9-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:5:5-23:19
+11-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:5:5-26:19
 12        android:allowBackup="true"
 12-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -28,29 +28,44 @@
 19        android:testOnly="true"
 20        android:theme="@style/Theme.RabbitTracker" >
 20-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:11:9-51
-21        <activity
-21-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:12:9-20:20
-22            android:name="com.hello.RabbitTracker.LogInActivity"
-22-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:13:13-42
-23            android:theme="@style/SplashTheme" >
-23-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:14:13-47
-24            <intent-filter>
-24-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:15:13-19:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:16:17-69
-25-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:16:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:18:17-77
-27-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:18:27-74
-28            </intent-filter>
-29        </activity>
-30        <activity android:name="com.hello.RabbitTracker.SignUpActivity" />
-30-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:21:9-52
-30-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:21:19-49
-31        <activity android:name="com.hello.RabbitTracker.MainActivity" />
-31-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:22:9-59
-31-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:22:19-47
-32    </application>
-33
-34</manifest>
+21        <activity android:name="com.hello.RabbitTracker.AddTodoActivity" />
+21-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:12:9-62
+21-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:12:19-50
+22        <activity
+22-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:13:9-21:20
+23            android:name="com.hello.RabbitTracker.LogInActivity"
+23-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:14:13-42
+24            android:theme="@style/SplashTheme" >
+24-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:15:13-47
+25            <intent-filter>
+25-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:16:13-20:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:17:17-69
+26-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:17:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:19:17-77
+28-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:19:27-74
+29            </intent-filter>
+30        </activity>
+31        <activity android:name="com.hello.RabbitTracker.SignUpActivity" />
+31-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:22:9-52
+31-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:22:19-49
+32        <activity
+32-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:23:9-25:75
+33            android:name="com.hello.RabbitTracker.MainActivity"
+33-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:24:13-41
+34            android:windowSoftInputMode="stateHidden|adjustUnspecified" />
+34-->/Users/yejikim/AndroidStudioProjects/RabbitTracker/app/src/main/AndroidManifest.xml:25:13-72
+35
+36        <service
+36-->[androidx.room:room-runtime:2.2.6] /Users/yejikim/.gradle/caches/transforms-2/files-2.1/323b773b79cfa4e21058c5db04171636/room-runtime-2.2.6/AndroidManifest.xml:25:9-28:40
+37            android:name="androidx.room.MultiInstanceInvalidationService"
+37-->[androidx.room:room-runtime:2.2.6] /Users/yejikim/.gradle/caches/transforms-2/files-2.1/323b773b79cfa4e21058c5db04171636/room-runtime-2.2.6/AndroidManifest.xml:26:13-74
+38            android:directBootAware="true"
+38-->[androidx.room:room-runtime:2.2.6] /Users/yejikim/.gradle/caches/transforms-2/files-2.1/323b773b79cfa4e21058c5db04171636/room-runtime-2.2.6/AndroidManifest.xml:27:13-43
+39            android:exported="false" />
+39-->[androidx.room:room-runtime:2.2.6] /Users/yejikim/.gradle/caches/transforms-2/files-2.1/323b773b79cfa4e21058c5db04171636/room-runtime-2.2.6/AndroidManifest.xml:28:13-37
+40    </application>
+41
+42</manifest>

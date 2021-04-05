@@ -1,26 +1,23 @@
 package com.hello.RabbitTracker
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hello.RabbitTracker.databinding.ActivityMainBinding
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 class MainActivity : AppCompatActivity() {
 
     private var backPressedTime: Long = 0
-    private val testList: ArrayList<Todo> = arrayListOf(
-        Todo("흠냐흠냐"),
-        Todo("흠냐뤼"),
-        Todo("과연 될까~~~~")
-    )
+    private var todoList: ArrayList<Todo> = ArrayList()
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val todoListAdapter = TodoListAdapter(testList)
+    private val todoListAdapter = TodoListAdapter(todoList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,32 +27,62 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        binding.rvTodoList.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = todoListAdapter
-        }
-
-        binding.addTodolistBtn.setOnClickListener {
-            val todoListString = binding.editAddTodoList.text.toString()
-            if (todoListString.isEmpty()) {
-                Toast.makeText(applicationContext, "주라 주라 입력해주라", Toast.LENGTH_SHORT).show()
-            } else {
-                testList.add(Todo(todoListString))
-                todoListAdapter.notifyDataSetChanged()
-                binding.tvNum.text = "지금 리스트는 ${todoListAdapter.itemCount} 개"
-                Toast.makeText(applicationContext, "'$todoListString' 이/가 추가되었다!", Toast.LENGTH_SHORT).show()
+        with(binding) {
+            rvTodoList.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = todoListAdapter
             }
-        }
+            addTodoListBtn.setOnClickListener {
+                val todoListString = editAddTodoList.text.toString()
+                if (todoListString.isEmpty()) {
+//                    Toast.makeText(applicationContext, "주라 주라 입력해주라", Toast.LENGTH_SHORT).show()
+                    todoList.add(Todo("후딱하는 테스트용"))
+                    todoListAdapter.notifyDataSetChanged()
+                    rvTodoList.scrollToPosition(todoListAdapter.itemCount - 1)
+                    editAddTodoList.text = null
+                } else {
+                    todoList.add(Todo(todoListString))
+                    todoListAdapter.notifyDataSetChanged()
+                    rvTodoList.scrollToPosition(todoListAdapter.itemCount - 1) // 제일 마지막 리스트가 보이도록 스크롤
+                    editAddTodoList.text = null
+                    Toast.makeText(
+                        applicationContext,
+                        "'$todoListString' 이/가 추가되었다!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
 
-        binding.tvNum.text = "지금 리스트는 ${todoListAdapter.itemCount} 개"
+            panelLayout.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
+                override fun onPanelSlide(panel: View?, slideOffset: Float) {
+
+                }
+
+                override fun onPanelStateChanged(
+                    panel: View?,
+                    previousState: SlidingUpPanelLayout.PanelState?,
+                    newState: SlidingUpPanelLayout.PanelState?
+                ) {
+                    if (newState == SlidingUpPanelLayout.PanelState.EXPANDED) {
+                        tvDate.visibility = View.VISIBLE
+                    } else if(newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+                        tvDate.visibility = View.GONE
+                    }
+                }
+
+            })
+        }
     }
 
     override fun onBackPressed() {
         if (System.currentTimeMillis() - backPressedTime >= 2000) {
-            backPressedTime = System.currentTimeMillis()
-            Toast.makeText(applicationContext, "한 번 더 누르면 종료", Toast.LENGTH_SHORT).show()
-        }
-        else {
+            if (binding.panelLayout.panelState == SlidingUpPanelLayout.PanelState.EXPANDED) {
+                binding.panelLayout.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
+            } else {
+                backPressedTime = System.currentTimeMillis()
+                Toast.makeText(applicationContext, "한 번 더 누르면 종료", Toast.LENGTH_SHORT).show()
+            }
+        } else {
             finish()
         }
     }

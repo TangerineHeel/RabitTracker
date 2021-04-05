@@ -4,6 +4,7 @@ package com.hello.RabbitTracker.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,19 +14,23 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.hello.RabbitTracker.R;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final SlidingUpPanelLayout rootView;
 
   @NonNull
-  public final TextView addTodolistBtn;
+  public final TextView addTodoListBtn;
 
   @NonNull
-  public final ConstraintLayout constraintLayout;
+  public final CalendarView calendarView;
+
+  @NonNull
+  public final ConstraintLayout drawer;
 
   @NonNull
   public final EditText editAddTodoList;
@@ -34,26 +39,33 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView imageView;
 
   @NonNull
+  public final SlidingUpPanelLayout panelLayout;
+
+  @NonNull
   public final RecyclerView rvTodoList;
 
   @NonNull
-  public final TextView tvNum;
+  public final TextView tvDate;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull TextView addTodolistBtn,
-      @NonNull ConstraintLayout constraintLayout, @NonNull EditText editAddTodoList,
-      @NonNull ImageView imageView, @NonNull RecyclerView rvTodoList, @NonNull TextView tvNum) {
+  private ActivityMainBinding(@NonNull SlidingUpPanelLayout rootView,
+      @NonNull TextView addTodoListBtn, @NonNull CalendarView calendarView,
+      @NonNull ConstraintLayout drawer, @NonNull EditText editAddTodoList,
+      @NonNull ImageView imageView, @NonNull SlidingUpPanelLayout panelLayout,
+      @NonNull RecyclerView rvTodoList, @NonNull TextView tvDate) {
     this.rootView = rootView;
-    this.addTodolistBtn = addTodolistBtn;
-    this.constraintLayout = constraintLayout;
+    this.addTodoListBtn = addTodoListBtn;
+    this.calendarView = calendarView;
+    this.drawer = drawer;
     this.editAddTodoList = editAddTodoList;
     this.imageView = imageView;
+    this.panelLayout = panelLayout;
     this.rvTodoList = rvTodoList;
-    this.tvNum = tvNum;
+    this.tvDate = tvDate;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public SlidingUpPanelLayout getRoot() {
     return rootView;
   }
 
@@ -78,15 +90,21 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.add_todolist_btn;
-      TextView addTodolistBtn = rootView.findViewById(id);
-      if (addTodolistBtn == null) {
+      id = R.id.add_todo_list_btn;
+      TextView addTodoListBtn = rootView.findViewById(id);
+      if (addTodoListBtn == null) {
         break missingId;
       }
 
-      id = R.id.constraintLayout;
-      ConstraintLayout constraintLayout = rootView.findViewById(id);
-      if (constraintLayout == null) {
+      id = R.id.calendarView;
+      CalendarView calendarView = rootView.findViewById(id);
+      if (calendarView == null) {
+        break missingId;
+      }
+
+      id = R.id.drawer;
+      ConstraintLayout drawer = rootView.findViewById(id);
+      if (drawer == null) {
         break missingId;
       }
 
@@ -102,20 +120,22 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      SlidingUpPanelLayout panelLayout = (SlidingUpPanelLayout) rootView;
+
       id = R.id.rv_todo_list;
       RecyclerView rvTodoList = rootView.findViewById(id);
       if (rvTodoList == null) {
         break missingId;
       }
 
-      id = R.id.tv_num;
-      TextView tvNum = rootView.findViewById(id);
-      if (tvNum == null) {
+      id = R.id.tv_date;
+      TextView tvDate = rootView.findViewById(id);
+      if (tvDate == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, addTodolistBtn, constraintLayout,
-          editAddTodoList, imageView, rvTodoList, tvNum);
+      return new ActivityMainBinding((SlidingUpPanelLayout) rootView, addTodoListBtn, calendarView,
+          drawer, editAddTodoList, imageView, panelLayout, rvTodoList, tvDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

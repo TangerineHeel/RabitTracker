@@ -4,7 +4,7 @@ package com.hello.RabbitTracker.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,15 +20,15 @@ public final class TodoListItemBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final CheckBox checkBox;
+  public final ImageView ivCheckBoxTodoListItem;
 
   @NonNull
   public final TextView tvTodoListItem;
 
-  private TodoListItemBinding(@NonNull ConstraintLayout rootView, @NonNull CheckBox checkBox,
-      @NonNull TextView tvTodoListItem) {
+  private TodoListItemBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ImageView ivCheckBoxTodoListItem, @NonNull TextView tvTodoListItem) {
     this.rootView = rootView;
-    this.checkBox = checkBox;
+    this.ivCheckBoxTodoListItem = ivCheckBoxTodoListItem;
     this.tvTodoListItem = tvTodoListItem;
   }
 
@@ -59,9 +59,9 @@ public final class TodoListItemBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.checkBox;
-      CheckBox checkBox = rootView.findViewById(id);
-      if (checkBox == null) {
+      id = R.id.iv_check_box_todo_list_item;
+      ImageView ivCheckBoxTodoListItem = rootView.findViewById(id);
+      if (ivCheckBoxTodoListItem == null) {
         break missingId;
       }
 
@@ -71,7 +71,8 @@ public final class TodoListItemBinding implements ViewBinding {
         break missingId;
       }
 
-      return new TodoListItemBinding((ConstraintLayout) rootView, checkBox, tvTodoListItem);
+      return new TodoListItemBinding((ConstraintLayout) rootView, ivCheckBoxTodoListItem,
+          tvTodoListItem);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

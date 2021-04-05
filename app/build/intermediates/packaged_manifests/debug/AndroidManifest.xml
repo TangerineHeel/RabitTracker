@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.RabbitTracker" >
+        <activity android:name="com.hello.RabbitTracker.AddTodoActivity" />
         <activity
             android:name="com.hello.RabbitTracker.LogInActivity"
             android:theme="@style/SplashTheme" >
@@ -28,7 +29,14 @@
             </intent-filter>
         </activity>
         <activity android:name="com.hello.RabbitTracker.SignUpActivity" />
-        <activity android:name="com.hello.RabbitTracker.MainActivity" />
+        <activity
+            android:name="com.hello.RabbitTracker.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
     </application>
 
 </manifest>

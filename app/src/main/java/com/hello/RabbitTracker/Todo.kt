@@ -1,4 +1,5 @@
 package com.hello.RabbitTracker
 
-data class Todo(var todo:String) {
-}
+data class Todo(
+    val todo:String
+    )
